@@ -1,0 +1,41 @@
+body{
+	background-image: url('../images/bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.panel{
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+.panel-heading{
+	margin-top: 10px;
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+
+
+.form_container{
+	background-color: #ccc;
+}
+
+.edit-form{
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+.header_bg{
+	background-color: #ccc;
+	height: 50px;
+	border-radius: 5px;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+.clear{
+	margin-top: 5px;
+}
+
+.log-container{
+}
