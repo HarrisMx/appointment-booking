@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email" id="email" >ID Number</label>
-                                    <input type="text" required name="email" autofocus="true" class="form-control"/>
+                                    <input type="text" required name="email" autofocus="true" class="form-control id"/>
                                 </div>
 								<div class="form-groupr">
                                     <button id="send" class="btn col-lg-5 btn-large btn-danger verify" type="submit">Verify ID</button>
@@ -54,18 +54,18 @@
                             <form action="login.php" method="POST">
                                 <div class="form-group">
                                     <label for="name" id="email" >DOB</label>
-                                    <input type="text" required name="name" disabled autofocus="true" class="form-control"/>
+                                    <input type="text" required name="name" disabled autofocus="true" class="form-control dob"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="sname" id="email" >Gender</label>
-                                    <input type="text" required name="sname" disabled autofocus="true" class="form-control"/>
+                                    <input type="text" required name="sname" disabled autofocus="true" class="form-control gender"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" id="email" >Age</label>
-                                    <input type="text" required name="email" disabled autofocus="true" class="form-control"/>
+                                    <input type="text" required name="email" disabled autofocus="true" class="form-control age"/>
                                 </div>
                                 <div class="form-group">
-                                    <button id="send" disabled class="btn col-lg-5 btn-large btn-danger" type="submit">Register User</button>
+                                    <button id="send" disabled class="btn col-lg-5 btn-large btn-danger btnSub" type="submit">Register User</button>
                                 </div>
                             </form>
                         </div>
