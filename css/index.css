@@ -3,11 +3,17 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
 .panel{
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
 }
+
+.pat_table{
+	margin-top: 35px;
+}
+
 .panel-heading{
 	margin-top: 10px;
 	text-align: center;
@@ -15,6 +21,9 @@ body{
 	padding-top: 5px;
 }
 
+.btnSub{
+	float: right;
+}
 
 .form_container{
 	background-color: #ccc;
@@ -37,5 +46,6 @@ body{
 	margin-top: 5px;
 }
 
-.log-container{
+.log_form{
+	margin: 0 auto;
 }

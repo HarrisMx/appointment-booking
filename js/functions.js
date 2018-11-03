@@ -1,7 +1,19 @@
 //Functions to handle form validations and live changes
 
 $(document).ready(function(){
-    $('.verify').on('click', function(){
+
+    $('.id').on('input', function(e){
+        if($('.id').val().length == 13){
+            validate_Id();
+        }
+        else{
+            $('.dob').val('');
+            $('.gender').val('');
+            $('.age').val('');
+        }
+    });
+
+    function validate_Id(){
         var line = $('.id').val();
         if(line.length != 13){
             alert("Invalid ID Number, Please Enter a 13 digit number");
@@ -42,7 +54,7 @@ $(document).ready(function(){
                 $('.btnSub').removeAttr('disabled');
             }
         }
-    });
+    }
 
     $('pdate').datepicker({
         uiLibrary: 'boostrap4'

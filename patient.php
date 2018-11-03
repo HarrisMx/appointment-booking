@@ -52,18 +52,18 @@
                             <form action="login.php" method="POST">
                                 <div class="form-group">
                                     <label for="name" id="email" >DOB</label>
-                                    <input type="text" required name="name" disabled autofocus="true" class="form-control dob"/>
+                                    <input type="text" required name="name" autofocus="true" class="form-control dob"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="sname" id="email" >Gender</label>
-                                    <input type="text" required name="sname" disabled autofocus="true" class="form-control gender"/>
+                                    <input type="text" required name="sname" autofocus="true" class="form-control gender"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" id="email" >Age</label>
-                                    <input type="text" required name="email" disabled autofocus="true" class="form-control age"/>
+                                    <input type="text" required name="email" autofocus="true" class="form-control age"/>
                                 </div>
                                 <div class="form-group col-lg-12 btn_holder">
-                                    <button id="send" disabled class="btn col-lg-5 btn-large btn-danger btnSub" type="submit">Register User</button>
+                                    <button id="send" class="btn col-lg-5 btn-large btn-danger btnSub" type="submit">Register User</button>
                                 </div>
                             </form>
                         </div>

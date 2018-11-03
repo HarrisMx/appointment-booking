@@ -62,34 +62,31 @@
     </ul>
   </div>
 </nav>
- <div class="panel">
- 	<div class="panel-heading btn-danger">
- 		<h1 id="header-text">Create Appointment</h1>
- 	</div>
- 	<div class="panel-body">
- 		<form method="post" action="createApp.php">
- 			 <div class="form-group">
-                <label for="pdate">Date</label>
-                   <input type="date" required id="pdate" name="pdate" autofocus="true" class="form-control"/>
-             </div>
-             <div class="form-group">
-                <label for="pname">Patient Name</label>
-                   <input type="text" required id="pname" name="pname" autofocus="true" class="form-control"/>
-             </div>
-             <div class="form-group">
-                <label for="psurname">Patient Surname</label>
-                   <input type="text" id="psurname" required name="psurname" autofocus="true" class="form-control"/>
-             </div>
-             <div class="form-group">
-                <label for="pdoc">Doctor</label>
-                   <input type="text" required id="pdoc" name="pdoc" autofocus="true" class="form-control"/>
-             </div>
-             <div class="form-group">
-                <button class="btn btn-danger col-md-12" type="submit">Create Appointment</button>
-             </div>
- 		</form>
- 	</div>
- </div>
+
+ <div class="container form_container col-lg-12">
+	<table class="table col-12 pat_table">
+        <thead>
+            <th>#</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>ID Number</th>
+            <th>Contact Number</th>
+            <th>Doctor</th>
+            <th></th>
+        </thead>
+	<tbody>
+		<tr>
+			<td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+		</tr>
+	</tbody>
+	</table>
+</div>
 </div>
 </body>
 </html>
