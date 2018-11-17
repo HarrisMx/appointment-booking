@@ -18,60 +18,55 @@
 <div class="jumbotron bg-danger" style="text-align:center">
     <h1 class="danger" style="color:#ffffff">Capture New Registration</h1>
 </div>
-<div class="container header_bg col-lg-12">
-	Personal Info
-</div>
 <div class="container form_container col-lg-12">
+<form method="POST" action="php/functions.php">
 	<table class="table col-12">
+    <legend style="text-align:center;height:70px;padding-top:20px"  class="title">Personal Infomation</legend>
 	<tbody>
 		<tr>
 			<td>
 			<div class="row">
-                        <div class="col-lg-12">
-                            <form>
-                                <div class="form-group">
-                                    <label for="name" id="email" >Name</label>
-                                    <input type="text" required name="name" autofocus="true" class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sname" id="email" >Surname</label>
-                                    <input type="text" required name="sname" autofocus="true" class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" id="email" >ID Number</label>
-                                    <input type="text" required name="email" autofocus="true" class="form-control id"/>
-                                </div>
-								
-                            </form>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="name" id="name" >Name</label>
+                        <input type="text" required name="name" autofocus="true" class="form-control"/>
                     </div>
+                    <div class="form-group">
+                        <label for="sname" id="email" >Surname</label>
+                        <input type="text" required name="sname" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" id="id" >ID Number</label>
+                        <input type="text" required name="id"  class="form-control id"/>
+                    </div>
+                </div>
+            </div>
 			</td>
 			<td>
 			<div class="row">
-                        <div class="col-lg-12">
-                            <form action="login.php" method="POST">
-                                <div class="form-group">
-                                    <label for="name" id="email" >DOB</label>
-                                    <input type="text" required name="name" disabled autofocus="true" class="form-control dob"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sname" id="email" >Gender</label>
-                                    <input type="text" required name="sname" disabled autofocus="true" class="form-control gender"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" id="email" >Age</label>
-                                    <input type="text" required name="email" disabled autofocus="true" class="form-control age"/>
-                                </div>
-                                <div class="form-group col-lg-12 btn_holder">
-                                    <button id="send" disabled class="btn col-lg-5 btn-large btn-danger btnSub" type="submit">Register User</button>
-                                </div>
-                            </form>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="dob" id="dob" >DOB</label>
+                        <input type="text" required name="dob" disabled class="form-control dob"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" id="gender" >Gender</label>
+                        <input type="text" required name="gender" disabled class="form-control gender"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="age" id="age" >Age</label>
+                        <input type="text" required name="age" disabled class="form-control age"/>
+                    </div>
+                    <div class="form-group col-lg-12 btn_holder">
+                        <button id="send" disabled class="btn col-lg-5 btn-large btn-danger btnSub" type="submit">Register User</button>
+                    </div>
+            </div>
                     </div>
 			</td>
 		</tr>
 	</tbody>
-	</table>
+    </table>
+    </form>
 </div>
     </div> <!-- /container -->
 </body>

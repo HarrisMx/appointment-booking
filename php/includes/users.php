@@ -9,7 +9,6 @@
 	$password = "";
 
 
-
 	class ManageUsers
 	{
 		public $connection_link;
@@ -43,9 +42,9 @@
 
 			while($row = mysqli_fetch_assoc($result)){
 				
-				if($username == $row['email'] && $password == $row['password']){
+				if($username == $row['id_number'] && $password == $row['password']){
 					#cann assign your session variables here
-					$_SESSION['email'] = $row['email'];
+					$_SESSION['id_number'] = $row['id_number'];
 					$_SESSION['logged_in'] = "yes";
 					$user_varified = true;
 					break;
@@ -58,15 +57,6 @@
 			$sql_command = $this->Register_user($table , $data);
 			echo $sql_command;
 			$result = $this->connection_link->query($sql_command);
-			//$statement = $this->connection_link->prepare($sql_command);
-			/*if ($result->rowCount()) {
-				$statement->bind_param("ssssssss", implode(',', array_values($data)));	
-				$statement->execute();
-			}
-			else{
-				echo "The Query was not correctly prepared";
-			}*/
-
 			return 1;
 		}
 	}
@@ -112,24 +102,26 @@
 		//Folder to Save the pictures
 		$target = "images/".basename($_FILES['image']['name']);
 		move_uploaded_file($_FILES['image']['tmp_name'] , $target);
-		$password = trim($_POST['pass']);	
-		$address = trim($_POST['address']); 
-		$nkName = trim($_POST['nkName']);
-		$nkSname = trim($_POST['nkSname']);
-		$nkContact = trim($_POST['nkContact']);
-		$Contact = trim($_POST['contact']);
+		
+		#Get user date from form
+		$id = trim($_POST['id']); 
+		$name = trim($_POST['name']);
+		$surname = trim($_POST['sname']);
+		$email = trim($_POST['email']);
+		$pass = trim($_POST['pass']);
+		$cpass = trim($_POST['cpass']);	
+		
+		#specify table name on the database
 		$table = 'users';
 
+		#Prepare all values to be passed as an array
 		$data = array(
 			'name' => $name,
-			'surname' => $surname,
-			'contact' => $Contact,
-			'image' => $image,
-			'username' => $username,
-			'address' => $address,
-			'password' => $password,
-			'nkName' => $nkName,
-			'nkSname' => $nkSname,
+			'sname' => $surname,
+			'id' => $id,
+			'email' => $email,
+			'pass' => $pass,
+			'cpass' => $cpass,
 			'nkContact' => $nkContact
 		);
 

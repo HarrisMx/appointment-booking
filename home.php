@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php 
+
+  session_start(); 
+
+  require('php/includes/connect.db.php');
+  $sql = "SELECT * FROM doctor";
+
+  $conn = new Database_Connection();
+	$connection_link = $conn->connect();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +22,7 @@
 <link href="css/bootstrap/bootstrap-grid.css" rel="stylesheet" type="text/css" media="screen">
 <link rel="stylesheet" type="text/css" href="css/index.css" media="screen">
 <link href="css/bootstrap/bootstrap-reboot.css" rel="stylesheet" type="text/css" media="screen">
+<script src="js/functions.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function clearForm(){
 		document.getElementById('pdate').innerHTML = " ";
@@ -82,11 +93,24 @@
              </div>
              <div class="form-group">
                 <label for="pdoc">Doctor</label>
-                   <input type="text" required id="pdoc" name="pdoc" autofocus="true" class="form-control"/>
+                   <select class="form-control" id="exampleSelect1">
+                   <option selected>Select a doctor....</option>
+                     <?php
+                        $result = $connection_link->query($sql);
+                      
+                      while($row = mysqli_fetch_assoc($result)){ ?>
+                        <option class="option"><?php
+                          echo $row['doc_name'] . " ".$row['doc_surname'];
+                        ?></option>
+                      
+                      <?php }
+                      $connection_link->close();
+                     ?>
+                   </select>
              </div>
              <div class="form-group">
                 <button class="btn btn-danger col-md-12" type="submit">Create Appointment</button>
-             </div>
+            </div>
  		</form>
  	</div>
  </div>
