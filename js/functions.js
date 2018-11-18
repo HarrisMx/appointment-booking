@@ -19,6 +19,15 @@ $(document).ready(function(){
         });
     }
 
+    function clear() {
+        $('#name').html("");
+        $('#sname').html("");
+        $('#id').html("")
+        $('#email').html("");
+        $('#pass').html("");
+        $('#cpass').html("")
+    }
+
     function validate_Id(){
         var line = $('.id').val();
         if(line.length != 13){

@@ -13,11 +13,16 @@
 <link href="css/bootstrap/bootstrap-grid.css" rel="stylesheet" type="text/css" media="screen">
 <link href="css/bootstrap/bootstrap-reboot.css" rel="stylesheet" type="text/css" media="screen">
 <script src="js/functions.js" type="text/javascript"></script>
-<script>
-    $(document).ready(function(){ 
-       // $('#myModal').modal('show');
-    });
-</script>
+<?php 
+    if(isset($_GET['user_exists'])) {
+        if($_GET['user_exists'] == 'true') {  ?>
+        <script>
+             $(document).ready(function(){ 
+                $('#user_exist').modal('show');
+            });
+        </script>;
+<?php } 
+}?>
 </head>
 <body>
 	<div class="container">
@@ -26,7 +31,7 @@
 </div>
       <div class="row">
                         <div class="col-lg-12">
-                            <form action="login.php" method="POST">
+                            <form action="php/includes/users.php" method="POST">
                                 <div class="form-group">
                                     <label for="name" id="email" >Name</label>
                                     <input type="text" required name="name" id="name" autofocus="true" class="form-control"/>
@@ -52,17 +57,17 @@
                                     <input type="Password" required name="cpass" id="cpass" class="form-control"/>
                                 </div>
                                 <div class="form-group">
-                                    <button id="send" class="btn col-lg-12 btn-large btn-danger" type="submit">Submit Registration</button>
+                                    <button id="send" class="btn col-lg-12 btn-large btn-danger" name="submit_reg" type="submit">Submit Registration</button>
                                 </div>
                                 <div class="form-group">
-                                    <button id="send" class="btn col-lg-12 btn-large btn-primary" type="submit">Clear Form</button>
+                                    <button class="btn col-lg-12 btn-large btn-primary">Clear Form</button>
                                 </div>
                             </form>
                         </div>
                     </div>
     </div> <!-- /container -->
 
-<!-- Modal -->
+<!-- ID Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -92,8 +97,28 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Discard</button>
-        <button type="button" class="btn btn-primary">Confirm</button>
+        <button type="button" class="btn btn-secondary clear-form">Discard</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--User Error Modal -->
+<div class="modal fade" id="user_exist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registration Error</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align:center">
+            ID Number already registered
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="clear()">OK</button>
       </div>
     </div>
   </div>

@@ -59,6 +59,23 @@
 			$result = $this->connection_link->query($sql_command);
 			return 1;
 		}
+
+		function checkIdentity($id , $table_name){
+			$user_varified = false;
+			$sql = "SELECT * FROM ".$table_name;
+
+			$result = $this->connection_link->query($sql);
+
+			while($row = mysqli_fetch_assoc($result)){
+				
+				if($id == $row['id_number']){
+					$user_varified = true;
+					break;
+				}
+			}
+
+			return $user_varified;
+		}
 	}
 
 	$user = new ManageUsers();
@@ -116,20 +133,23 @@
 
 		#Prepare all values to be passed as an array
 		$data = array(
+			'id_number' => $id,
+			'password' => $pass,
 			'name' => $name,
-			'sname' => $surname,
-			'id' => $id,
+			'surname' => $surname,
 			'email' => $email,
-			'pass' => $pass,
-			'cpass' => $cpass,
-			'nkContact' => $nkContact
 		);
 
-		if($user->Execute_registration($data,$table) > 0){
-			header("Location: ../../index.php?msg=1");
+		if ($user->checkIdentity($data['id_number'] ,  $table)){
+			header("Location: ../../register.php?user_exists=true");
+		}else{
+			if($user->Execute_registration($data,$table) > 0){
+				header("Location: ../../home.php");
+			}
+			else{
+				header("Location: ../../register.php");
+			}
 		}
-		else{
-			header("Location: ../../register.html?msg=1");
-		}
+		
 	}
  ?>
