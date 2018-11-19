@@ -7,7 +7,7 @@
   if (isset($_POST['delete'])) {
       $sql = "DELETE FROM appointment WHERE id = ".$_GET['id'];
       $result = $connect->query($sql);     
-      header("location : appointment.php");
+      #header("location : appointment.php");
   }
 
   if (isset($_POST['update'])) {
@@ -44,7 +44,6 @@
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-danger">
 			<p style="margin-top: 7px, margin-top7px;" class="text-right"><?php 
-	echo $_SESSION['user'];
  ?></p>
   <a class="navbar-brand" href="#">Menu</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,16 +61,11 @@
       <li class="nav-item">
         <a class="nav-link" href="appointment.php">View Appointments</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Action
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+			<li class="nav-item">
+        <a class="nav-link" href="doctors.php">View Doctors</a>
+      </li>
+			<li class="nav-item">
+        <a class="nav-link" href="adoctor.php">Add Doctors</a>
       </li>
       <li class="nav-item">
         <form nethod="post" action="logout.php">
@@ -112,7 +106,7 @@
   			</div>&nbsp;&nbsp;&nbsp;
   			<div class="form-group">
 			    <label for="newDoc">Doctor: &nbsp;</label>
-			    <input type="text" value="<?php echo $row['doctor'] ?>" class="form-control" id="newDoc" name="newDoc">
+			    <input type="text" value="<?php echo $row['doc_name']?>" class="form-control" id="newDoc" name="newDoc">
   			</div>&nbsp;&nbsp;&nbsp;
       			<button type="submit" class="btn btn-default" name="update">Submit Changes</button>
 		</form>
@@ -151,8 +145,8 @@
 	        				<td><?php  echo $row["p_name"]?></td>
 	        				<td><?php  echo $row["p_surname"]?></td>
 	        				<td><?php  echo $row["date"]?></td>
-	        				<td><?php  echo $row["doctor"]?></td>
-	        				<td><a href="appointment.php?update=1&id=<?php echo $row['id'];$id=$row['id'];?>"><button class="btn btn-dark" name="ed">Edit</button></a></td>
+									<td><?php  echo $row["doc_name"]?></td>
+	        				<td><a href="appointment.php?update=1&id=<?php echo $row['id'];?>"><button class="btn btn-dark" name="ed">Edit</button></a></td>
                   <form action="appointment.php?delete=1&id=<?php echo $row['id'];?>" method="POST">
 	        			<td>
 							<button class="btn btn-dark" name="delete" type="submit">Delete</button>

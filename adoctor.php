@@ -35,40 +35,26 @@
 <body>
 	<div class="container">
 <div class="jumbotron bg-danger" style="text-align:center;color:#ffffff">
-    <h1 class="danger">Clinic Management System</h1>
+    <h1 class="danger">Add New Doctor</h1>
 </div>
       <div class="row">
                         <div class="col-lg-12">
-                            <form action="php/includes/users.php" method="POST">
+                            <form action="php/functions.php" method="POST">
                                 <div class="form-group">
                                     <label for="name" id="email" >Name</label>
                                     <input type="text" required name="name" id="name" autofocus="true" class="form-control"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="sname" id="email" >Surname</label>
-                                    <input type="text" required name="sname" autofocus="true" class="form-control"/>
+                                    <input type="text" required name="sname" class="form-control"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="id" id="email" >ID Number</label>
-                                    <input type="text" required name="id" id="id" autofocus="true" class="form-control id"/>
+                                    <label for="add" id="add" >Specialization</label>
+                                    <input type="text" required name="add" id="add" class="form-control id"/>
                                 </div>
+                                
                                 <div class="form-group">
-                                    <label for="email" id="email" >Email</label>
-                                    <input type="text" required name="email" id="email" autofocus="true" class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="pass" id="user">Password</label>
-                                    <input type="Password" required name="pass" id="pass" class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="cpass" id="user">Confirm Password</label>
-                                    <input type="Password" required name="cpass" id="cpass" class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <button id="send" class="btn col-lg-12 btn-large btn-danger" name="submit_reg" type="submit">Submit Registration</button>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn col-lg-12 btn-large btn-primary">Clear Form</button>
+                                    <button id="send" class="btn col-lg-12 btn-large btn-danger" name="add_doc" type="submit">Add Doctor</button>
                                 </div>
                             </form>
                         </div>

@@ -90,7 +90,7 @@
 
 		if($user->Login_user($table , $username, $password)){
 			
-			$sql = "SELECT id FROM ".$table." WHERE email='".$username."' AND password = '".$password."'";
+			$sql = "SELECT id FROM ".$table." WHERE id_number='".$username."' AND password = '".$password."'";
 			
 			$result = $user->connection_link->query($sql);
 

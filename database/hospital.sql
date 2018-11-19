@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2018 at 04:54 PM
+-- Generation Time: Nov 20, 2018 at 12:11 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -29,13 +29,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `appointment` (
-  `id` int(50) NOT NULL,
+  `id` int(11) NOT NULL,
   `p_name` text NOT NULL,
   `p_surname` text NOT NULL,
   `date` date NOT NULL,
-  `doc_id` int(50) NOT NULL,
-  `person_id` int(50) NOT NULL
+  `doc_name` text NOT NULL,
+  `person_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`id`, `p_name`, `p_surname`, `date`, `doc_name`, `person_id`) VALUES
+(12, 'Sifiso', 'Sibiya', '2018-10-23', 'Mxolisi Ngwenya', 0);
 
 -- --------------------------------------------------------
 
@@ -74,16 +81,15 @@ CREATE TABLE `doctor` (
   `doc_id` int(50) NOT NULL,
   `doc_name` text NOT NULL,
   `doc_surname` text NOT NULL,
-  `specialty` text NOT NULL,
-  `person_id` bigint(13) NOT NULL
+  `specialty` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`doc_id`, `doc_name`, `doc_surname`, `specialty`, `person_id`) VALUES
-(1, 'Mxolisi', 'Ngwenya', 'Psychologist', 9503126023084);
+INSERT INTO `doctor` (`doc_id`, `doc_name`, `doc_surname`, `specialty`) VALUES
+(1, 'Mxolisi', 'Ngwenya', 'Psychologist');
 
 -- --------------------------------------------------------
 
@@ -193,9 +199,7 @@ INSERT INTO `users` (`id`, `id_number`, `password`, `name`, `surname`, `email`) 
 -- Indexes for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `doc_id` (`doc_id`),
-  ADD KEY `person_id` (`person_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `communication`
@@ -260,7 +264,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `communication`
@@ -278,7 +282,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `doc_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `doc_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `employee_roles`
@@ -319,13 +323,6 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`doc_id`) REFERENCES `doctor` (`doc_id`),
-  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`);
 
 --
 -- Constraints for table `doctor`
