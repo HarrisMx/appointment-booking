@@ -57,7 +57,7 @@
 
         $connection_link->close();
 
-        #header("Location:../appointment.php");
+        header("Location:../appointment.php");
     }
 
     function sendEmail($email,$name, $doc, $date){
