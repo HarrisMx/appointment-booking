@@ -42,8 +42,11 @@
                                 <div class="form-group">
                                     <Button class="btn btn-danger col-lg-12" name="submit_log" type="submit">Sign In</Button>
                                 </div>
-								<div class="form-group">
-                                    <Button class="btn btn-primary col-lg-12 signup" onclick="navigate()" name="signup">Sign Up</Button>
+								                <div class="form-group" style="text-align:center">
+                                <label>OR</label>
+                                </div>
+                                <div class="form-group" style="text-align:center">
+                                <label><a href="register.php">Click <span style="text-decoration:underline">Here</span> to register</a></label>
                                 </div>
                             </form>
                         </div>

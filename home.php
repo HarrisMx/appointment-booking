@@ -97,11 +97,15 @@
              </div>
              <div class="form-group">
                 <label for="pname">Patient Name</label>
-                   <input type="text" required id="pname"  name="pname" autofocus="true" class="form-control"/>
+                   <input type="text" required id="pname"  name="pname" class="form-control"/>
              </div>
              <div class="form-group">
                 <label for="psurname">Patient Surname</label>
-                   <input type="text" id="psurname" required name="psurname"  autofocus="true" class="form-control"/>
+                   <input type="text" id="psurname" required name="psurname"  class="form-control"/>
+             </div>
+             <div class="form-group">
+                <label for="email">Email</label>
+                   <input type="text" id="email" required name="email"  class="form-control"/>
              </div>
              <div class="form-group">
                 <label for="pdoc">Doctor</label>

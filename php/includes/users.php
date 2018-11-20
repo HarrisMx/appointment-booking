@@ -80,6 +80,9 @@
 
 	$user = new ManageUsers();
 	
+	if(isset($_POST['signup'])){
+		header("Location: ../../register.php");
+	}
 
 	if(isset($_POST['submit_log'])){
 		

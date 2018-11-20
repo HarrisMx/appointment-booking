@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2018 at 12:11 AM
+-- Generation Time: Nov 20, 2018 at 06:58 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -42,7 +42,11 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`id`, `p_name`, `p_surname`, `date`, `doc_name`, `person_id`) VALUES
-(12, 'Sifiso', 'Sibiya', '2018-10-23', 'Mxolisi Ngwenya', 0);
+(12, 'Sifiso', 'Sibiya', '2018-10-23', 'Mxolisi Ngwenya', 0),
+(13, 'Mxolisi', 'Ngwenya', '2017-09-20', 'Wandile Magudulela', 2),
+(14, 'Blade', 'Ndimande', '2018-12-20', 'Sgacagaca Makgongwa', 0),
+(15, 'Blade', 'Ndimande', '2018-12-20', 'Sgacagaca Makgongwa', 0),
+(16, 'Blade', 'Ndimande', '2018-12-20', 'Sgacagaca Makgongwa', 0);
 
 -- --------------------------------------------------------
 
@@ -78,7 +82,7 @@ CREATE TABLE `contact` (
 --
 
 CREATE TABLE `doctor` (
-  `doc_id` int(50) NOT NULL,
+  `id` int(11) NOT NULL,
   `doc_name` text NOT NULL,
   `doc_surname` text NOT NULL,
   `specialty` text NOT NULL
@@ -88,8 +92,9 @@ CREATE TABLE `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`doc_id`, `doc_name`, `doc_surname`, `specialty`) VALUES
-(1, 'Mxolisi', 'Ngwenya', 'Psychologist');
+INSERT INTO `doctor` (`id`, `doc_name`, `doc_surname`, `specialty`) VALUES
+(1, 'Wandile', 'Magudulela', 'Dentist'),
+(2, 'Sgacagaca', 'Makgongwa', 'Surgeon');
 
 -- --------------------------------------------------------
 
@@ -217,7 +222,7 @@ ALTER TABLE `contact`
 -- Indexes for table `doctor`
 --
 ALTER TABLE `doctor`
-  ADD PRIMARY KEY (`doc_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `employee_roles`
@@ -264,7 +269,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `communication`
@@ -282,7 +287,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `doc_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee_roles`
@@ -323,12 +328,6 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `doctor`
---
-ALTER TABLE `doctor`
-  ADD CONSTRAINT `fk_doc` FOREIGN KEY (`doc_id`) REFERENCES `person` (`id`);
 
 --
 -- Constraints for table `nurse`

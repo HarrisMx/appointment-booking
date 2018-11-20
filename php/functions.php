@@ -7,6 +7,7 @@
         $psurname = $_POST['psurname'];
         $dname = $_POST['dname'];
         $date = $_POST['pdate'];
+        $email = $_POST['email'];
         $doc_id = "";
         $p_id = "";
 
@@ -19,7 +20,8 @@
         $data = array(
 			'p_name' => $pname,
 			'p_surname' => $psurname,
-			'date' => $date,
+            'date' => $date,
+            'email' => $email,
 			'doc_name' => $dname,
 			'person_id' => $p_id
         );
@@ -27,6 +29,8 @@
         createAppointment("appointment" , $data);
 
         create_appointment(createAppointment("appointment" , $data));
+
+        sendEmail($data['email'],$full_name, $data['doc_name'], $data['date']);
     }
 
     
@@ -39,11 +43,11 @@
         $sname = $_POST['sname'];
         $spec = $_POST['add'];
 
-        $qry = "INSERT INTO doctor(doc_name, doc_surname, specialty) VALUES(".$name.",".$sname.",".$spec.")";
+        $qry = "INSERT INTO doctor(doc_name, doc_surname, specialty) VALUES('".$name."','".$sname."','".$spec."')";
         echo $qry;
         $connection_link->query($qry);
         $connection_link->close();
-        #header("Location:../doctors.php");
+        header("Location:../doctors.php");
     }
     function create_appointment($query) {
         $conn = new Database_Connection();
@@ -53,7 +57,26 @@
 
         $connection_link->close();
 
-        header("Location:../appointment.php");
+        #header("Location:../appointment.php");
+    }
+
+    function sendEmail($email,$name, $doc, $date){
+
+        ini_set( 'sendmail_from', "linda@cms.com" );
+        ini_set( 'SMTP', 'localhost');
+        ini_set( 'smtp_port', 25 );
+
+        $to      = $email;
+        $subject = 'Doctors Appointment';
+        $message = 'Hi '.$name.', <br>This is a reminder of your appointment <br>Please find the details below<br><br>Date : '.$date.'<br>Doctor : '.$doc;
+        $headers = 'From: linda@cms.com' . "\r\n" .
+        'Reply-To: infodesk@cms.com' . "\r\n";
+
+        echo $email;
+        echo '<br>';
+        echo $message;
+
+        mail($to, $subject, $message, $headers);
     }
 
     function get_doc_id($name) {
